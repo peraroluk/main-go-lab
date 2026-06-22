@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 导航首页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f9fafb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* 顶部导航 */
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 2rem;
+      padding: 0.75rem 0 1.5rem;
+      border-bottom: 1px solid #e4e9f0;
+      margin-bottom: 2.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #506680;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #0f2b44;
+    }
+    nav .brand {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0f2b44;
+      margin-right: auto;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      color: #0f2b44;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: #1f3a57;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.4rem;
+      color: #2a4059;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #4b617b;
+      margin-bottom: 2.2rem;
+      max-width: 520px;
+    }
+
+    .hero-link {
+      display: inline-block;
+      background: #0f2b44;
+      color: #fff;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+      margin-top: 0.2rem;
+      letter-spacing: 0.01em;
+      border: none;
+    }
+    .hero-link:hover {
+      background: #1a3d60;
+      box-shadow: 0 2px 8px rgba(15, 43, 68, 0.15);
+    }
+
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.3rem 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s;
+      border: 1px solid #ebeff5;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2e435e;
+      margin-bottom: 0.2rem;
+    }
+    .card .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #6a7f99;
+      background: #eef2f8;
+      padding: 0.15rem 0.7rem;
+      border-radius: 16px;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid #eaeef4;
+      padding-bottom: 1rem;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1a3450;
+      margin-bottom: 0.2rem;
+    }
+    .faq-a {
+      font-size: 0.9rem;
+      color: #3e5672;
+      line-height: 1.5;
+    }
+
+    .footnote {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #5d738d;
+      border-top: 1px solid #dfe6ef;
+      padding-top: 1.5rem;
+      text-align: left;
+    }
+
+    .inline-link {
+      color: #0f2b44;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #bcc9db;
+    }
+    .inline-link:hover {
+      text-decoration-color: #0f2b44;
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 1.5rem 1rem;
+      }
+      nav {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .card {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <span class="brand">⚽ 导航</span>
+      <a href="#场景">场景</a>
+      <a href="#常见">常见</a>
+    </nav>
+
+    <h1>世界杯 · 再次访问与收藏</h1>
+    <div class="subhead">
+      持续关注赛程、数据与深度内容，从一次浏览到长期信息枢纽。
+    </div>
+
+    <p style="margin-bottom: 0.8rem;">
+      如果你曾浏览过 <a href="https://main-go-shijiebei.com" class="inline-link">世界杯</a> 相关内容，现在可以通过一个入口保持跟进。
+      赛事周期之外，数据、历史与前瞻同样值得沉淀。
+    </p>
+    <p style="margin-bottom: 2rem; color: #3a5170;">
+      将页面加入书签或复制链接，方便随时回到信息主干。
+    </p>
+
+    <a href="https://main-go-shijiebei.com" class="hero-link">世界杯</a>
+
+    <h2 id="场景">三个常用场景</h2>
+    <div class="card-grid">
+      <div class="card">
+        <span class="tag">场景一</span>
+        <h3>赛程与实时追踪</h3>
+        <p>比赛日查看对阵、时间、分组状态。无需反复搜索，<a href="https://main-go-shijiebei.com" class="inline-link">世界杯</a> 页面直接提供结构化列表与关键节点。</p>
+      </div>
+      <div class="card">
+        <span class="tag">场景二</span>
+        <h3>历史数据回顾</h3>
+        <p>历届冠军、射手榜、经典比赛记录。适合赛前预热或赛后复盘，资料以表格、时间线形式组织。</p>
+      </div>
+      <div class="card">
+        <span class="tag">场景三</span>
+        <h3>收藏与再次访问</h3>
+        <p>将链接保存至浏览器收藏夹或笔记工具。内容不定期更新，确保再次打开时仍可获取有效信息。</p>
+      </div>
+    </div>
+
+    <h2 id="常见">常见说明</h2>
+    <div>
+      <div class="faq-item">
+        <div class="faq-q">这个页面主要提供什么？</div>
+        <div class="faq-a">围绕世界杯相关的赛程、基础数据、阅读索引。不包含直播或博彩内容，专注信息整理与导航。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内容多久更新？</div>
+        <div class="faq-a">关键赛程节点、小组出线后及淘汰赛阶段会同步更新。非赛事期保持历史数据与精选文章。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如何快速回到这里？</div>
+        <div class="faq-a">桌面浏览器可添加到书签栏；移动端通过分享菜单添加到主屏幕。链接不变，内容持续。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否可以转载或分享？</div>
+        <div class="faq-a">页面内容欢迎引用链接，转载数据请标注原始来源。不引导任何违规操作或付费。</div>
+      </div>
+    </div>
+
+    <div class="footnote">
+      <span>信息索引 · 非官方页面</span> &nbsp;|&nbsp; 
+      <span>入口：<a href="https://main-go-shijiebei.com" class="inline-link">世界杯</a></span>
+    </div>
+  </div>
+</body>
+</html>
