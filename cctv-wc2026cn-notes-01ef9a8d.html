@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>再次相遇 · 世界杯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f9f6;
+            color: #1e2b2b;
+            line-height: 1.6;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* 开篇氛围 */
+        .intro-whisper {
+            text-align: center;
+            padding: 2.5rem 1rem 1.8rem;
+            position: relative;
+        }
+
+        .intro-whisper::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #359b8c, #71c2b0);
+            margin: 1.2rem auto 0;
+            border-radius: 6px;
+            opacity: 0.5;
+        }
+
+        .intro-whisper .greeting {
+            font-size: 1.7rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #245c53;
+        }
+
+        .intro-whisper .greeting span {
+            display: inline-block;
+            background: #d9f0ea;
+            padding: 0 0.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+
+        .intro-whisper p {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #3a5e58;
+        }
+
+        /* 承接段 – 收藏 再访 持续关注 */
+        .connection {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            margin: 1.2rem 0;
+            box-shadow: 0 6px 18px rgba(45, 110, 100, 0.06);
+            border: 1px solid #c3e2da;
+        }
+
+        .connection h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            color: #1c544b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .connection h2::before {
+            content: '📎';
+            font-size: 1.5rem;
+        }
+
+        .connection p {
+            margin-bottom: 0.9rem;
+            font-size: 1.02rem;
+        }
+
+        .connection a {
+            color: #1f7a6c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #9bcbc1;
+            transition: border 0.2s, background 0.2s;
+            padding: 0 2px;
+        }
+
+        .connection a:hover {
+            background: #d6f0ea;
+            border-bottom-color: #2f8f7d;
+        }
+
+        /* 特点网格卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 24px;
+            border: 1px solid #daeee7;
+            box-shadow: 0 4px 10px rgba(40, 110, 95, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(30, 90, 80, 0.08);
+            border-color: #97cbbd;
+        }
+
+        .feature-card .emoji-marker {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1b554a;
+            margin: 0.3rem 0 0.4rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #38665c;
+        }
+
+        /* 温和场景 + 提示 */
+        .gentle-scene {
+            background: linear-gradient(135deg, #e0f4ef, #f0faf7);
+            border-radius: 30px;
+            padding: 1.8rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 5px solid #4fa797;
+        }
+
+        .gentle-scene p {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .gentle-scene .bookmark-tip {
+            display: inline-block;
+            background: #ffffffbb;
+            backdrop-filter: blur(4px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            border: 1px solid #94cbbd;
+            margin-top: 0.3rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 26px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0 1rem;
+            border: 1px solid #c7e3da;
+        }
+
+        .faq-mini h3 {
+            font-weight: 450;
+            font-size: 1.2rem;
+            color: #1f6155;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1e4f45;
+        }
+
+        .faq-item .a {
+            color: #3f6b61;
+            font-size: 0.95rem;
+            padding-left: 0.3rem;
+        }
+
+        .faq-item .a a {
+            color: #1d7a6a;
+            text-decoration: underline wavy #92cbbd 1px;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .faq-item .a a:hover {
+            background: #d4efe7;
+            text-decoration: underline;
+        }
+
+        /* 温和结尾 */
+        .warm-footer {
+            margin: 2.5rem 0 1.5rem;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid #c0dbd3;
+            color: #37685e;
+        }
+
+        .warm-footer .small-note {
+            font-size: 0.9rem;
+            opacity: 0.75;
+            margin-top: 0.6rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .intro-whisper .greeting {
+                font-size: 1.4rem;
+            }
+
+            .connection {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gentle-scene {
+                padding: 1.3rem 1.2rem;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .intro-whisper p {
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 开场短句  -->
+    <div class="intro-whisper">
+        <div class="greeting">
+            再一次，<span>因为世界杯</span>
+        </div>
+        <p>
+            有些页面值得反复打开，有些记忆在收藏夹里慢慢沉淀。<br>
+            这里是关于 <a href="https://cctv-wc2026cn.com" style="color: #276b5e; text-decoration: none; border-bottom: 1px dashed #7cb9ab; font-weight: 500;">世界杯</a> 的一片安静角落。
+        </p>
+    </div>
+
+    <!-- 承接段落：再次访问·收藏·持续关注 -->
+    <div class="connection">
+        <h2>收藏夹里的老朋友</h2>
+        <p>
+            也许你曾在某个夜晚点开过这个站点，之后便把它留在了书签栏。再次回来时，页面依然干净，内容也比记忆中更充实。
+        </p>
+        <p>
+            我们并不急于推销什么，只是想把关于 <a href="https://cctv-wc2026cn.com">世界杯</a> 的脉络、赛程与故事，整理成一种可以慢慢翻阅的样子。<br>
+            如果你愿意，可以把它放在浏览器的收藏夹里；下次想了解世界杯动态时，不必重新搜索，它就在那里。
+        </p>
+        <p>
+            持续关注，有时是一种安静的陪伴。页面会随着赛程推进而更新，但不会用弹窗和推送打扰你。
+        </p>
+    </div>
+
+    <!-- 特点列表 网格卡片  -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="emoji-marker">📋</span>
+            <h3>赛历纵览</h3>
+            <p>预选赛、小组赛、淘汰赛…… 一场不落的时间线，方便你规划观赛节奏。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🏟️</span>
+            <h3>主办城市场景</h3>
+            <p>每座城市、每座球场都有独特的气息，页面用文字与图片带你提前感受。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🔖</span>
+            <h3>轻量收藏体验</h3>
+            <p>没有冗长注册，不必留下邮箱。喜欢就加入书签，随时回来看一眼。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🌿</span>
+            <h3>安静更新</h3>
+            <p>信息会慢慢生长，但你不会被打扰。适合喜欢自行探索节奏的浏览者。</p>
+        </div>
+    </div>
+
+    <!-- 温和场景 + 提示  -->
+    <div class="gentle-scene">
+        <p>🌙 深夜，你打开收藏夹，看到那个熟悉的标题——<strong>世界杯</strong>。没有小红点，没有未读消息，只有一行简短的赛历和一篇刚更新的短文。</p>
+        <p>或许只是随手翻翻，或许真的在等待某一场对决。无论哪一种，页面都在这里，不吵不闹。</p>
+        <div class="bookmark-tip">
+            💡 小提示：在桌面浏览器按 <kbd>Ctrl</kbd>+<kbd>D</kbd> 或 <kbd>⌘</kbd>+<kbd>D</kbd> 即可收藏本页。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要  -->
+    <div class="faq-mini">
+        <h3>❓ 一些你可能想问的</h3>
+        <div class="faq-item">
+            <span class="q">这个页面会频繁变动吗？</span>
+            <span class="a">不会。赛程和重要信息会在有更新时调整，但保持克制的节奏。你可以把 <a href="https://cctv-wc2026cn.com">世界杯</a> 当作一个安静的参考点。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">需要登录或订阅吗？</span>
+            <span class="a">完全不需要。所有内容直接可见，没有会员墙，也没有邮件订阅。打开即用。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">页面在手机上看着舒服吗？</span>
+            <span class="a">适配了各类屏幕，卡片和字体都会自动调整。横屏竖屏都合适。</span>
+        </div>
+    </div>
+
+    <!-- 温和结尾  -->
+    <div class="warm-footer">
+        <p>感谢你再次来到这里。</p>
+        <p>关于 <a href="https://cctv-wc2026cn.com" style="color: #1f6b5d; text-decoration: none; border-bottom: 1px dotted #81beaf;">世界杯</a> 的一切，我们慢慢聊。</p>
+        <div class="small-note">页面内容仅为展示方向 · 非官方 · 一杯茶的宁静</div>
+    </div>
+
+</div>
+</body>
+</html>
